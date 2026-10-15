@@ -6,10 +6,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
 
 jobs:
   publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -19,10 +28,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Publish generated files
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release view catalog >/dev/null 2>&1 || \
-            gh release create catalog --title "Plugin catalog" --notes "Generated paint.js plugin catalog."
-          gh release upload catalog dist/* --clobber
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
