@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+generated/
+dist/
+catalog.json
+plugins/*/plugin.paintjs
+*.log

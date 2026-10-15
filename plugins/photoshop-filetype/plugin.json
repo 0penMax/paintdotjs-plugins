@@ -1,0 +1,12 @@
+{
+    "id": "paintjs.photoshop-filetype",
+    "name": "Photoshop PSD FileType",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Frank Blumenberg and Tao Yue",
+    "website": "https://www.psdplugin.com/",
+    "copyright": "Copyright ©2006–2007 Frank Blumenberg; ©2010–2021 Tao Yue",
+    "description": "Open and save layered Adobe Photoshop PSD files. Powered by the MIT-licensed ag-psd library.",
+    "category": "File Types",
+    "license": "MIT and BSD-3-Clause; bundled dependencies use MIT and Apache-2.0"
+}
