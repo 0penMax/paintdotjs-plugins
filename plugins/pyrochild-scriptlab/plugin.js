@@ -50,7 +50,7 @@ function configure(context) {
     return openEffectDialog(context, ({values, content, requestPreview}) => {
         values.chain ||= [];
         let available = paintDotJs.effects.list().filter(effect =>
-            !effect.id.includes("paintjs.pyrochild-scriptlab"));
+            !effect.id.includes("pyrochild.scriptlab"));
         let sourceBefore = index => {
             let result = new Uint8ClampedArray(context.source);
             for (let stageIndex = 0; stageIndex < index; ++stageIndex) {
