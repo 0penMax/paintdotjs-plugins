@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-curves-plus",
+    "name": "Curves+",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-curvesplus",
+    "copyright": "Copyright © 2007-2016 Zach Walker",
+    "description": "Adjust luminosity, color, and alpha with an editable tone curve.",
+    "dialogTitle": "Curves+ by pyrochild",
+    "category": "Adjustments",
+    "license": "MIT"
+}

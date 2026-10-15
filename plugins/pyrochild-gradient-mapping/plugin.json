@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-gradient-mapping",
+    "name": "Gradient Mapping",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-gradientmapping",
+    "copyright": "Copyright © 2007-2016 Zach Walker",
+    "description": "Map a chosen image channel through a multi-stop color gradient.",
+    "dialogTitle": "Gradient Mapping by pyrochild",
+    "category": "Adjustments",
+    "license": "MIT"
+}

@@ -82,7 +82,8 @@ for (let directory of fs.readdirSync(path.join(root, "plugins")).sort()) {
     let packageBytes = buildPackage(directory, metadataText);
     let file = `${directory}.paintjs`;
     let sha256 = crypto.createHash("sha256").update(packageBytes).digest("hex");
-    plugins.push({ ...metadata, file, sha256 });
+    let source = `https://github.com/LabyStudio/paintdotjs-plugins/tree/main/plugins/${directory}`;
+    plugins.push({ ...metadata, file, source, sha256 });
 }
 
 let output = JSON.stringify({ schemaVersion: 1, plugins }, null, 2) + "\n";

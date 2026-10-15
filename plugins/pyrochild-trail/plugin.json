@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-trail",
+    "name": "Trail",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-trail",
+    "copyright": "Copyright ©2018 Zach Walker",
+    "description": "Give an object a directional trail made from repeated, optionally fading copies.",
+    "dialogTitle": "Trail by pyrochild",
+    "category": "Effects",
+    "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-scriptlab",
+    "name": "ScriptLab",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-scriptlab",
+    "copyright": "Copyright © 2007-2016 Zach Walker",
+    "description": "Build, reorder, configure, and run a reusable chain of image effects.",
+    "dialogTitle": "ScriptLab by pyrochild",
+    "category": "Effects",
+    "license": "MIT"
+}

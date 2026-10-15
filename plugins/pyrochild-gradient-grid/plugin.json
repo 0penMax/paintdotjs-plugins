@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-gradient-grid",
+    "name": "Gradient Grid",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-gradientgrid",
+    "copyright": "Copyright ©2011–2017 Zach Walker",
+    "description": "Render a repeating grid of radial, linear, conical, or square gradients.",
+    "dialogTitle": "Gradient Grid by pyrochild",
+    "category": "Effects",
+    "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+    "id": "paintjs.pyrochild-grid-warp",
+    "name": "Grid Warp",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "Zach Walker (pyrochild)",
+    "website": "https://github.com/bsneeze/pdn-gridwarp",
+    "copyright": "Copyright © 2012-2016 Zach Walker",
+    "description": "Warp an image by dragging the control points of a deformation grid.",
+    "dialogTitle": "Grid Warp by pyrochild",
+    "category": "Effects",
+    "license": "MIT"
+}
