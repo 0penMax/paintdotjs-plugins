@@ -19,7 +19,7 @@ function blendFactor(values, lengths, maximumDistance, distance, barIndex) {
     if (values.repetition === "repeat") {
         adjusted = ((adjusted % barLength) + barLength) % barLength;
         let factor = adjusted / barLength;
-        if (values.antiAlias) {
+        if (values.anti_alias) {
             const edge = barLength - adjusted;
             if (edge > 0 && edge < 1) {
                 factor = edge;
@@ -46,7 +46,7 @@ paintDotJs.registerPlugin({
             range("alpha1", "First color alpha", 0, 255, 255),
             color("color2", "Second color", "#ffffff"),
             range("alpha2", "Second color alpha", 0, 255, 255),
-            checkbox("gammaAdjusted", "Gamma-adjusted color blend", false),
+            checkbox("gamma_adjusted", "Gamma-adjusted color blend", false),
             range("width", "Bar width", 1, 100, 1),
             range("spacing", "Spacing", 0, 100, 0),
             range("angle", "Angle", 0, 360, 90, 1),
@@ -56,7 +56,7 @@ paintDotJs.registerPlugin({
             select("repetition", "Repetition", "none", [
                 ["none", "None"], ["repeat", "Repeat"], ["mirror", "Mirror"]
             ]),
-            checkbox("antiAlias", "Anti-alias", true),
+            checkbox("anti_alias", "Anti-alias", true),
             range("seed", "Seed", 0, 255, 0)
         ],
 
@@ -108,7 +108,7 @@ paintDotJs.registerPlugin({
                     const bar = (x - bounds.x) * Math.sin(angle + skew)
                         + (y - bounds.y) * Math.cos(angle + skew);
                     let factor;
-                    if (values.antiAlias) {
+                    if (values.anti_alias) {
                         const lower = blendFactor(values, lengths, maximumDistance, distance, Math.floor(bar));
                         const upper = blendFactor(values, lengths, maximumDistance, distance, Math.ceil(bar));
                         const fraction = bar - Math.floor(bar);
@@ -116,7 +116,7 @@ paintDotJs.registerPlugin({
                     } else {
                         factor = blendFactor(values, lengths, maximumDistance, distance, Math.floor(bar + 0.5));
                     }
-                    const output = interpolateColor(first, second, factor, values.gammaAdjusted);
+                    const output = interpolateColor(first, second, factor, values.gamma_adjusted);
                     const pixel = (y * width + x) * 4;
                     for (let channel = 0; channel < 4; ++channel) {
                         destination[pixel + channel] = output[channel];

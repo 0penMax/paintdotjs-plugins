@@ -26,7 +26,7 @@ function configure(context) {
         values.points ||= [[0, 0], [1, 1]];
         values.points.sort((left, right) => left[0] - right[0]);
         let toolbar = document.createElement("div");
-        toolbar.style.cssText = "display:flex;gap:8px;align-items:center;margin-bottom:8px";
+        toolbar.className = "plugin-effect-toolbar";
         content.appendChild(toolbar);
         addSelect(toolbar, values, "channel", "Channel", [
             ["rgb", "RGB"], ["luminosity", "Luminosity"], ["red", "Red"],
@@ -42,7 +42,7 @@ function configure(context) {
         let canvas = document.createElement("canvas");
         canvas.width = 420;
         canvas.height = 300;
-        canvas.style.cssText = "display:block;background:#202020;border:1px solid #777;touch-action:none;cursor:crosshair";
+        canvas.style.cssText = "display:block;max-width:100%;height:auto;background:#202020;border:1px solid #777;touch-action:none;cursor:crosshair";
         content.appendChild(canvas);
         let drawing = canvas.getContext("2d");
         let image = sourceCanvas().getContext("2d").getImageData(0, 0, context.width, context.height).data;

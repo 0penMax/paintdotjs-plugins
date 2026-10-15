@@ -100,7 +100,7 @@ function configure(context) {
         add.textContent = "Add effect";
         addRow.appendChild(add);
         let list = document.createElement("div");
-        list.style.cssText = "display:grid;gap:8px;min-width:520px;max-height:430px;overflow:auto";
+        list.style.cssText = "display:grid;width:100%;min-width:0;max-height:430px;gap:8px;overflow:auto";
         content.appendChild(list);
         let draw = () => {
             list.replaceChildren();

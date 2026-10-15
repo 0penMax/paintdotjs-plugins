@@ -27,21 +27,21 @@ paintDotJs.registerPlugin({
             color("color2", "Second color", "#ffffff"),
             range("alpha1", "First color alpha", 0, 255, 255),
             range("alpha2", "Second color alpha", 0, 255, 255),
-            checkbox("gammaAdjusted", "Gamma-adjusted color blend", false),
-            range("offsetX", "Horizontal offset", -1, 1, 0, 0.01),
-            range("offsetY", "Vertical offset", -1, 1, 0, 0.01),
+            checkbox("gamma_adjusted", "Gamma-adjusted color blend", false),
+            range("offset_x", "Horizontal offset", -1, 1, 0, 0.01),
+            range("offset_y", "Vertical offset", -1, 1, 0, 0.01),
             checkbox("lines", "Lines", false),
-            color("lineColor", "Line color", "#000000")
+            color("line_color", "Line color", "#000000")
         ],
 
         render({destination, width, height, values}) {
             const first = parseColor(values.color1, values.alpha1);
             const second = parseColor(values.color2, values.alpha2);
-            const line = parseColor(values.lineColor);
+            const line = parseColor(values.line_color);
             const size = values.size;
             const radius = Math.hypot(size / 2, size / 2);
-            const offsetX = Math.trunc(values.offsetX * size);
-            const offsetY = Math.trunc(values.offsetY * size);
+            const offsetX = Math.trunc(values.offset_x * size);
+            const offsetY = Math.trunc(values.offset_y * size);
 
             for (let y = 0; y < height; ++y) {
                 for (let x = 0; x < width; ++x) {
@@ -77,7 +77,7 @@ paintDotJs.registerPlugin({
                         if (values.reflected) {
                             amount = Math.abs(1 - 2 * amount);
                         }
-                        output = interpolateColor(first, second, amount, values.gammaAdjusted);
+                        output = interpolateColor(first, second, amount, values.gamma_adjusted);
                     }
                     const offset = (y * width + x) * 4;
                     for (let channel = 0; channel < 4; ++channel) {

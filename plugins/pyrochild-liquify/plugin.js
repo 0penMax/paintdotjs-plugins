@@ -9,7 +9,7 @@ function configure(context) {
         values.strength ??= 0.6;
         values.strokes ||= [];
         let toolbar = document.createElement("div");
-        toolbar.style.cssText = "display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px";
+        toolbar.className = "plugin-effect-toolbar plugin-effect-toolbar-three";
         content.appendChild(toolbar);
         addSelect(toolbar, values, "tool", "Tool", [
             ["push", "Push"], ["twistLeft", "Twist Left"], ["twistRight", "Twist Right"],

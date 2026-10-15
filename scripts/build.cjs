@@ -24,23 +24,20 @@ function buildPackage(directory, metadataText) {
         throw new Error(`${directory} requires plugin.js.`);
     }
 
-    let source = fs.readFileSync(sourcePath);
-    if (/^\s*import\s/m.test(source.toString("utf8"))) {
-        let result = buildSync({
-            entryPoints: [sourcePath],
-            bundle: true,
-            write: false,
-            format: "iife",
-            platform: "browser",
-            target: ["es2020"],
-            minify: true,
-            legalComments: "none",
-            banner: {
-                js: "/*! Third-party license texts are packaged in assets/THIRD-PARTY-NOTICES.txt. */"
-            }
-        });
-        source = Buffer.from(result.outputFiles[0].contents);
-    }
+    let result = buildSync({
+        entryPoints: [sourcePath],
+        bundle: true,
+        write: false,
+        format: "iife",
+        platform: "browser",
+        target: ["es2020"],
+        minify: true,
+        legalComments: "none",
+        banner: {
+            js: "/*! Third-party license texts are packaged in assets/THIRD-PARTY-NOTICES.txt. */"
+        }
+    });
+    let source = Buffer.from(result.outputFiles[0].contents);
 
     let files = {
         "plugin.json": archiveEntry(strToU8(metadataText)),

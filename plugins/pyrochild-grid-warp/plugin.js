@@ -14,7 +14,7 @@ function configure(context) {
             resetGrid(values);
         }
         let toolbar = document.createElement("div");
-        toolbar.style.cssText = "display:flex;gap:8px;margin-bottom:8px";
+        toolbar.className = "plugin-effect-toolbar";
         content.appendChild(toolbar);
         values.gridSize ||= String(values.columns);
         addSelect(toolbar, values, "gridSize", "Grid", [

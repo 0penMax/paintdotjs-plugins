@@ -36,20 +36,20 @@ paintDotJs.registerPlugin({
             ]),
             range("width", "Width", 1, 100, 2),
             color("color", "Color", "#000000"),
-            checkbox("antiAlias", "Anti-alias", true),
+            checkbox("anti_alias", "Anti-alias", true),
             select("pattern", "Pattern", "solid", [
                 ["solid", "Solid"], ["dotted", "Dotted"], ["dashed", "Dashed"],
                 ["dash-dot", "Dash Dot"], ["dash-dot-dot", "Dash Dot Dot"],
                 ["dash-dash-dot", "Dash Dash Dot"],
                 ["dash-dash-dot-dot", "Dash Dash Dot Dot"]
             ]),
-            select("dashCaps", "Pattern caps", "flat", [
+            select("dash_caps", "Pattern caps", "flat", [
                 ["flat", "Flat"], ["round", "Round"], ["triangle", "Triangle"]
             ]),
             range("spacing", "Spacing", 0, 10, 1, 0.1),
-            range("startSweep", "Sweep start", 0, 360, 0, 1),
-            range("endSweep", "Sweep end", 0, 360, 90, 1),
-            select("endCaps", "Line caps", "none", [
+            range("start_sweep", "Sweep start", 0, 360, 0, 1),
+            range("end_sweep", "Sweep end", 0, 360, 90, 1),
+            select("end_caps", "Line caps", "none", [
                 ["none", "No Anchor"], ["flat", "Flat"], ["round", "Round"],
                 ["triangle", "Triangle"], ["square-anchor", "Square Anchor"],
                 ["round-anchor", "Round Anchor"], ["diamond", "Diamond Anchor"],
@@ -66,7 +66,7 @@ paintDotJs.registerPlugin({
 
             const bounds = selectionBounds;
             const inset = values.width / 2
-                + (["square-anchor", "round-anchor", "diamond", "arrow"].includes(values.endCaps)
+                + (["square-anchor", "round-anchor", "diamond", "arrow"].includes(values.end_caps)
                     ? values.width / 2 : 0);
             const left = bounds.x + inset;
             const top = bounds.y + inset;
@@ -82,12 +82,12 @@ paintDotJs.registerPlugin({
             context.strokeStyle = values.color;
             context.lineWidth = values.width;
             context.lineJoin = "miter";
-            context.lineCap = lineCap(values.shape === "arc" ? values.endCaps : values.dashCaps);
+            context.lineCap = lineCap(values.shape === "arc" ? values.end_caps : values.dash_caps);
             context.setLineDash(dashPattern(values.pattern, values.width, values.spacing));
             context.beginPath();
 
-            let start = Math.min(values.startSweep, values.endSweep) * Math.PI / 180;
-            let end = Math.max(values.startSweep, values.endSweep) * Math.PI / 180;
+            let start = Math.min(values.start_sweep, values.end_sweep) * Math.PI / 180;
+            let end = Math.max(values.start_sweep, values.end_sweep) * Math.PI / 180;
             if (values.shape === "rectangle") {
                 context.rect(left, top, drawWidth, drawHeight);
             } else if (values.shape === "ellipse") {

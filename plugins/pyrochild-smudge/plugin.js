@@ -7,7 +7,7 @@ function configure(context) {
         values.pressure ??= 0.65;
         values.strokes ||= [];
         let toolbar = document.createElement("div");
-        toolbar.style.cssText = "display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px";
+        toolbar.className = "plugin-effect-toolbar plugin-effect-toolbar-three";
         content.appendChild(toolbar);
         addRange(toolbar, values, "size", "Brush size", 0.005, 0.25, 0.005, () => {});
         addRange(toolbar, values, "pressure", "Pressure", 0.05, 1, 0.05, () => {});
