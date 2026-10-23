@@ -1,0 +1,12 @@
+{
+    "id": "0penmax.object-align",
+    "name": "Object Align",
+    "version": "1.0.0",
+    "apiVersion": 1,
+    "author": "0penMax",
+    "website": "https://paintjs.net",
+    "copyright": "Copyright © 2026 0penMax",
+    "description": "Moves the visible pixels of the active layer to one of seven positions: center, horizontal center, vertical center, left, right, top, or bottom.",
+    "category": "Effects",
+    "license": "MIT"
+}
