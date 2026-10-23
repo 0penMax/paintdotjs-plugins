@@ -109,11 +109,20 @@ const ALIGNMENTS = [
     { id: "bottom", name: "Bottom", icon: paintDotJs.asset("bottom.png"), alignment: "bottom" }
 ];
 
+const submenuIcon = paintDotJs.asset("icon.png");
+
+// Hosts with the category-icon fix (paintdotjs issue #16) accept a category
+// object; older hosts require a plain string (their optionalText() throws on
+// an object).
+const supportsCategoryIcons =
+    typeof PluginManager !== "undefined" && typeof PluginManager.normalizeEffectCategory === "function";
+const category = supportsCategoryIcons ? { name: "Object Align", icon: submenuIcon } : "Object Align";
+
 paintDotJs.registerPlugin({
     effects: ALIGNMENTS.map((spec) => ({
         id: spec.id,
         name: spec.name,
-        category: "Object Align",
+        category: category,
         icon: spec.icon,
 
         // Runs on the main thread, receives a copy of the source bytes.
@@ -177,6 +186,12 @@ if (typeof EffectsMenu !== "undefined" && typeof EffectsMenu.createPluginOnlyCat
         const entry = createPluginOnlyCategory(key, label, effects);
         if (label === "Object Align") {
             entry.entries.sort((a, b) => rank(a.definition.id) - rank(b.definition.id));
+            // Hosts without the category-icon fix create the submenu with no
+            // icon — apply ours. Fixed hosts already set getIconSrc().
+            if (entry.hasIconImage === false) {
+                entry.hasIconImage = true;
+                entry.getIconSrc = () => submenuIcon;
+            }
         }
         return entry;
     };
